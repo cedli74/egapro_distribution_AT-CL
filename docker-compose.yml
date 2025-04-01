@@ -1,0 +1,32 @@
+services:
+  rest_api:
+    build: ./rest_api
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+    restart: always
+
+  grpc_service:
+    build: ./grpc_service
+    ports:
+      - "50051:50051"
+    volumes:
+      - ./data:/app/data
+    restart: always
+
+  swagger:
+    build: ./swagger
+    ports:
+      - "5001:5001"
+    restart: always
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - rest_api
+      - grpc_service
+      - swagger
+    restart: always
