@@ -30,7 +30,7 @@ L’ensemble est orchestré via **Docker** et **Docker Compose**, ce qui permet 
 ### 1. Cloner le dépôt
 
 ```bash
-git clone https://github.com/votre-utilisateur/egapro_distribution.git
+https://github.com/cedli74/egapro_distribution_AT-CL.git
 cd egapro_distribution 
 ```
 
