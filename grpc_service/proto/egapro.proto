@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package egapro;
+
+service EgaproService {
+  rpc GetEntreprises (EntreprisesRequest) returns (EntreprisesResponse);
+  rpc GetEntrepriseBySiren (EntrepriseRequest) returns (EntrepriseResponse);
+}
+
+message EntreprisesRequest {}
+
+message EntreprisesResponse {
+  repeated Entreprise entreprises = 1;
+}
+
+message EntrepriseRequest {
+  string siren = 1;
+}
+
+message EntrepriseResponse {
+  Entreprise entreprise = 1;
+}
+
+message Entreprise {
+  string annee = 1;
+  string structure = 2;
+  string tranche_effectifs = 3;
+  string siren = 4;
+  string raison_sociale = 5;
+  string nom_ues = 6;
+  string entreprises_ues = 7;
+  string region = 8;
+  string departement = 9;
+  string pays = 10;
+  string code_naf = 11;
+  string note_ecart_remuneration = 12;
+  string note_ecart_taux_augmentation_hors_promotion = 13;
+  string note_ecart_taux_promotion = 14;
+  string note_ecart_taux_augmentation = 15;
+  string note_retour_conge_maternite = 16;
+  string note_hautes_remunerations = 17;
+  string note_index = 18;
+}
