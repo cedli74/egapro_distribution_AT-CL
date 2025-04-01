@@ -1,0 +1,30 @@
+swagger: "2.0"
+info:
+  title: "API EgaPro"
+  description: "Documentation de l'API EgaPro"
+  version: "1.0.0"
+host: "localhost:5000"  # Spécifiez le port 5000 ici pour les requêtes API
+schemes:
+  - "http"
+paths:
+  /api/v1/entreprises/{siren}:
+    get:
+      summary: "Obtenir les données d'une entreprise par SIREN"
+      parameters:
+        - name: "siren"
+          in: "path"
+          required: true
+          type: "string"
+          description: "Numéro SIREN de l'entreprise"
+      responses:
+        200:
+          description: "Données de l'entreprise"
+          examples:
+            application/json:
+              siren: "123456789"
+              nom: "Entreprise Exemple"
+              score_egalite: 95
+              adresse: "123 Rue Exemple, 75000 Paris"
+              autres_infos: "..."
+        404:
+          description: "Entreprise non trouvée"
